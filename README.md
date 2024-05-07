@@ -74,3 +74,52 @@ For a complete implementation, you would need to develop the rhythm music theory
 
 Source: Conversation with Bing, 5/7/2024
 (1) github.com. https://github.com/selimtikiz/270201085/tree/1d6dee6e1c80c96a568c0ca9a34b2547615aba00/labs12%2Fbinary_search_index.py.
+
+import os
+import hashlib
+import random
+
+# ... (previous code remains unchanged)
+
+# Function to perform random search on list of rhythms
+def random_search(patterns, target_hash):
+    keys = list(patterns.keys())
+    random.shuffle(keys)
+    for key in keys:
+        if hash_pattern(patterns[key]) == target_hash:
+            return key
+    return None
+
+# Function to get user ratings and encode as hash
+def get_user_ratings():
+    print("Please rate the following dimensions of the features on a scale of 1 to 5:")
+    dimensions = ['Rhythm', 'Harmony', 'Melody', 'Dynamics', 'Timbre']
+    ratings = {}
+    for dimension in dimensions:
+        rating = input(f"{dimension}: ")
+        ratings[dimension] = int(rating)
+    ratings_hash = hash_pattern(str(ratings))
+    return ratings, ratings_hash
+
+# Main function to tie it all together
+def main():
+    # ... (previous code remains unchanged)
+
+    if bridge_index != -1:
+        # ... (previous code remains unchanged)
+    else:
+        print("No bridge rhythm found. Initiating random search...")
+        bridge_rhythm = random_search(patterns, target_hash)
+        if bridge_rhythm:
+            print(f"Bridge rhythm found: {bridge_rhythm}")
+        else:
+            print("No bridge rhythm found after random search.")
+
+    # Get user ratings and store in hash table
+    ratings, ratings_hash = get_user_ratings()
+    ratings_table = {ratings_hash: ratings}
+    print(f"Ratings stored with hash: {ratings_hash}")
+
+if __name__ == "__main__":
+    main()
+
