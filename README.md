@@ -1,5 +1,7 @@
 # jazz_groovebox
 junkbox for a jazz groovebox
+rough outline, not really great
+
 Creating a Python code for a jazz groove box with the features you've described is quite an advanced task, but I can certainly help you get started with a basic structure. Here's a conceptual outline of how you might approach this project:
 
 ```python
